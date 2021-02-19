@@ -1,3 +1,6 @@
+"use strict";
+
+// creating tiles
 const dominoTiles = [
   [0, 0],
   [0, 1],
@@ -29,14 +32,16 @@ const dominoTiles = [
   [6, 6],
 ];
 
+// creating players
 const player1 = [];
 const player2 = [];
 const player3 = [];
 const player4 = [];
 
+// creating table
 const table = [];
 
-// function to draw 7 random tiles to each player
+// creating function to draw 7 random tiles to each player
 function divideTiles(dominoTiles, player) {
   let i = 0;
   while (i < 7) {
@@ -61,7 +66,7 @@ function gameInit() {
 }
 
 // hard coding game
-// first move
+// initial move
 function firstMove(player, tileIndex) {
   chosenTile = player[tileIndex][0];
   table.push(chosenTile);
@@ -69,11 +74,24 @@ function firstMove(player, tileIndex) {
   console.log("table: ", table);
 }
 
+// game sequence
+function gameSequence() {
+  firstMove(player1, tileIndex);
+  nextMove(player2, tileIndex);
+}
+
 // next move
 function nextMove(player, tileIndex) {
+  // table edge on the left
   tableEdgeLeft = table[0][0];
+
+  // table edge on the right
   tableEdgeRight = table[table.length - 1][1];
+
+  // tile choosed
   tile = player[tileIndex][0];
+
+  //checks if tile has one or two numbers equal to one of the edges
   if (tile[0] === tableEdgeLeft) {
     console.log("right tile on the left");
     // IN THIS CASE IT IS NECESSARY TO REVERSE THE TILE
