@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.player {
+  background-color: cornflowerblue;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+.p {
+  align-content: center;
+}
+
+.table {
+  background-color: darkgoldenrod;
+}
